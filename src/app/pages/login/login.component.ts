@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,9 @@ export class LoginComponent {
   formLogin;
   //Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/)]
   constructor(private formSvc:FormBuilder,
-    private auth:AuthService
+    private auth:AuthService,
+    private route:Router
+
   ){
     this.formLogin = this.formSvc.group({
       'email':['', [Validators.required, Validators.email]],
@@ -25,6 +28,7 @@ export class LoginComponent {
   onSubmit(){
     console.log(this.formLogin.value);
     this.auth.login(this.formLogin.value as any);
+    this.route.navigate(['/dashboard']);
   }
 
   getError(control:string){
