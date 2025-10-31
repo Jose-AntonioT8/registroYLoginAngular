@@ -21,7 +21,9 @@ export class RegisterComponent {
     this.formLogin = this.formSvc.group({
       'email':['', [Validators.required, Validators.email]],
       'password':['', [Validators.required]],
-      'password2':['', [Validators.required]]
+      'password2':['', [Validators.required]],
+      'name':['', [Validators.required],Validators.minLength(3)],
+      'surName':['', [Validators.required], Validators.minLength(3)],
     });
   }
 
@@ -57,6 +59,22 @@ export class RegisterComponent {
         break;
         case 'password2': 
         return "Las contraseñas no son iguales";
+        break;
+      case 'name':
+        if(this.formLogin.controls.name.errors!=null && 
+           Object.keys(this.formLogin.controls.name.errors).includes('required'))
+           return "El campo nombre es requerido";
+        else if(this.formLogin.controls.name.errors!=null && 
+           Object.keys(this.formLogin.controls.name.errors).includes('minlength'))
+           return "El nombre debe tener al menos 3 caracteres";
+        break;
+        case 'surName':
+        if(this.formLogin.controls.surName.errors!=null && 
+           Object.keys(this.formLogin.controls.surName.errors).includes('required'))
+           return "El campo apellido es requerido";
+        else if(this.formLogin.controls.surName.errors!=null && 
+           Object.keys(this.formLogin.controls.surName.errors).includes('minlength'))
+           return "El apellido debe tener al menos 3 caracteres";
         break;
       default:return "";
     }
