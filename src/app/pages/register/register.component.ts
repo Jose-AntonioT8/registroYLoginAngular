@@ -22,8 +22,8 @@ export class RegisterComponent {
       'email':['', [Validators.required, Validators.email]],
       'password':['', [Validators.required]],
       'password2':['', [Validators.required]],
-      'name':['', [Validators.required],Validators.minLength(3)],
-      'surName':['', [Validators.required], Validators.minLength(3)],
+      'name':['', [Validators.required, Validators.minLength(3)]],
+      'surName':['', [Validators.required, Validators.minLength(3)]],
     });
   }
 
