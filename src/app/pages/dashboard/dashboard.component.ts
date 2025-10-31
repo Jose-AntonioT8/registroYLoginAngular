@@ -14,7 +14,6 @@ export class DashboardComponent {
 
   };
   onSubmit(){
-    alert('Cerrando sesión');
     this.auth.logout();
     this.Routes.navigate(['/login']);
   };
