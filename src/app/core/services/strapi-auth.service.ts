@@ -1,7 +1,7 @@
 import { Injectable, signal } from '@angular/core';
 import { Credentials } from '../models/credentials';
 import { HttpClient } from '@angular/common/http';
-
+/*
 export interface StrapiUser{
     id : number
     documentId: string
@@ -33,9 +33,7 @@ private http:HttpClient=inject(HttpClient);
     this.user = signal<any>(null);
     this.error = signal<any>(null);
     const token = localStorage.getItem('token');
-    if(token){
-
-    }
+   this.me();
   }
 
   me():User|null{
@@ -86,3 +84,4 @@ private http:HttpClient=inject(HttpClient);
   }
 
 }
+*/
