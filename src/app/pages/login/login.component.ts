@@ -30,6 +30,9 @@ export class LoginComponent {
     this.auth.login(this.formLogin.value as any);
     this.route.navigate(['/dashboard']);
   }
+  register(){
+    this.route.navigate(['/register']);
+  }
 
   getError(control:string){
        

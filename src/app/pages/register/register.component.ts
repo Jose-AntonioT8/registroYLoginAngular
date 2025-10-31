@@ -39,7 +39,9 @@ export class RegisterComponent {
 
    
   }
-
+  login(){
+    this.route.navigate(['/login']);
+  }
   getError(control:string){
 
     switch(control){
